@@ -79,7 +79,6 @@ public class MainActivityServlet extends AsyncTask<MainActivity,Void,List<String
 
 		//アクティビティのビューの書き換え
 		mainActivity.setConnectionLossNum(userInfo.get(0));		//ユーザー名
-
     }
 
 }
