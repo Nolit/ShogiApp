@@ -33,68 +33,50 @@ class MainActivity : Activity() {
         //xmlの読み込み
         setContentView(R.layout.activity_main)
 
+        //接続切れ回数の更新
+//            			new MainActivityServlet(id).execute(this);
+
+        battleStartButton.setOnClickListener {
+            println("本日の接続切れ回数は" + connectionLossNum + "回です。")
+            if (Integer.parseInt(connectionLossNum) <= 10) {
+                val intent = Intent(this@MainActivity, Matching::class.java)
+                intent.putExtra("id", this.id)
+                startActivity(intent)
+            } else {
+                AlertDialog.Builder(this@MainActivity)
+                        .setTitle("ペナルティ")
+                        .setMessage("1日の接続切れ回数の限度を超えました。" + "\n" + "本日は対局出来ません。")
+                        .setPositiveButton("OK", null)
+                        .show()
+            }
+        }
+
         //ログイン状態とゲスト状態の分岐処理
+        var intent: Intent
         if (id == "guest") {
             /* ---------------------------------ゲストの処理--------------------------------- */
             println("プリファレンスにIDが保存されていません。id[$id]で実行します。")
 
-            //ビューの更新
             battleStartButton.text = "ゲストで対局"
             myPageButton.text = "ログイン"
 
-            //リスナー
-            //ゲストモードで対局開始
-            battleStartButton.setOnClickListener {
-                val intent = Intent(this@MainActivity, Matching::class.java)
-                intent.putExtra("id", "guest")
-                startActivity(intent)
-            }
-
             //会員登録ページへ遷移
-            myPageButton.setOnClickListener {
-                val intent = Intent(this@MainActivity, Login::class.java)
-                startActivity(intent)
-            }
-
-
+            intent = Intent(this@MainActivity, Login::class.java)
         } else {
             /* ---------------------------------会員の処理--------------------------------- */
             println("プリファレンスにIDが保存されていました。id[$id]で実行します。")
-
-            //接続切れ回数の更新
-//            			new MainActivityServlet(id).execute(this);
 
             //ビューの更新
             battleStartButton.text = "対局開始"
             myPageButton.text = "マイページ"
 
-            //リスナー
-            //対局開始
-            battleStartButton.setOnClickListener {
-                println("本日の接続切れ回数は" + connectionLossNum + "回です。")
-                if (Integer.parseInt(connectionLossNum) <= 10) {
-                    val intent = Intent(this@MainActivity, Matching::class.java)
-                    startActivity(intent)
-                } else {
-                    /* ここでアラート */
-                    AlertDialog.Builder(this@MainActivity)
-                               .setTitle("ペナルティ")
-                               .setMessage("1日の接続切れ回数の限度を超えました。" + "\n" + "本日は対局出来ません。")
-                               .setPositiveButton("OK", null)
-                               .show()
-                }
-            }
-
             //マイページへ遷移
-            myPageButton.setOnClickListener {
-                val intent = Intent(this@MainActivity, MyPage::class.java)
-                startActivity(intent)
-            }
-
+            intent = Intent(this@MainActivity, MyPage::class.java)
         }    //-----------終了:ログイン状態とゲスト状態の分岐処理
-
+        myPageButton.setOnClickListener {
+            startActivity(intent)
+        }
     }
-
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
         if (event.action == KeyEvent.ACTION_DOWN) {
@@ -121,7 +103,4 @@ class MainActivity : Activity() {
         super.onStop()
         println("MainActivity:onStop()...")
     }
-
 }
-
-
