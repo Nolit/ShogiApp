@@ -10,8 +10,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import tt4.syogi.activities.MainActivity;
-import tt4.syogi.activities.Registration;
+import com.uty.shogi.activities.MainActivity;
+import com.uty.shogi.activities.Registration;
+import com.uty.shogi.settings.ServerConfig;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -65,7 +66,7 @@ public class RegistrationServlet extends AsyncTask<Registration,Void,List<String
 
                 //getResponseCode()実行時にリクエストを行う戻り値はHTTPステータスコード
                 if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                	InputStreamReader isr = new InputStreamReader(connection.getInputStream(),"UTF_8");
+                	InputStreamReader isr = new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8);
                     BufferedReader reader = new BufferedReader(isr);
                     String line;
                     //レスポンスを文字列で受け取る

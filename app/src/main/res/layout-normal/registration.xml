@@ -115,21 +115,6 @@
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true" >
 
-        <Button
-            android:id="@+id/canselButton"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="40dp"
-            android:text="戻る"
-            android:textSize="10sp" />
-
-        <Button
-            android:id="@+id/registrationButton"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="40dp"
-            android:text="登録"
-            android:textSize="10sp" />
     </LinearLayout>
 
     <TextView
@@ -139,5 +124,23 @@
         android:layout_alignLeft="@+id/formConfirmPassword"
         android:layout_centerVertical="true"
         android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/canselButton"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="戻る"
+        android:textSize="10sp"
+        android:layout_above="@+id/registrationButton"
+        android:layout_alignLeft="@+id/linearLayout1" />
+
+    <Button
+        android:id="@+id/registrationButton"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="登録"
+        android:textSize="10sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/linearLayout1" />
 
 </RelativeLayout>
