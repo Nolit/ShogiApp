@@ -1,6 +1,5 @@
 package com.uty.shogi.activities
 
-
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
@@ -8,73 +7,91 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.widget.Button
-
+import butterknife.bindView
 import com.uty.shogi.R
 import com.uty.shogi.servletClients.MainActivityServlet
+import com.uty.shogi.settings.ServerConfig
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.io.PrintWriter
+import java.net.HttpURLConnection
+import java.net.URL
+import java.nio.charset.StandardCharsets
+import kotlin.concurrent.thread
 
 class MainActivity : Activity() {
 
-    private val id: String = getSharedPreferences("tt4", Context.MODE_PRIVATE).getString("id", "guest")
-    var connectionLossNum: String? = null
-    private val battleStartButton: Button = findViewById(R.id.battleStart) as Button
-    private val myPageButton: Button = findViewById(R.id.intentMyPage) as Button
+    //この変数の値が一定を超えると対局が出来ない
+    var connectionLossCount: Int = 0
 
-	public override fun onCreate(savedInstanceState: Bundle?) {
-        println("MainActivity始め！")
+    private val battleStartButton: Button by bindView(R.id.battleStart)
+
+    //マイページ又はログインページ遷移するボタン
+    //***適切な名前に変更したいけど思いつかない***
+    private val myPageButton: Button by bindView(R.id.intentMyPage)
+
+    public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //デバッグ用処理:プリファレンスに異常な値が入った場合はここのコメントアウトを外す
-        /* データベースに存在しないIDがプリファレンスに入った場合はエラーが起きる */
-        //		Editor editor = pref.edit();
-        //		editor.remove("id");
-        //		editor.commit();
-        //		System.out.println("重要！:MainActivity:デバッグ用処理:プリファレンスのIDを強制的に削除しました。IDを削除したくない場合はコメントアウトをしてください。");
-
-        //xmlの読み込み
         setContentView(R.layout.activity_main)
 
-        //接続切れ回数の更新
-//            			new MainActivityServlet(id).execute(this);
+        //会員を一意に識別するID
+        //プリファレンスに保存したIDを参照するのはここに限られ、以降の処理ではIntentを使用してIDを渡す
+        val id: String = getSharedPreferences("tt4", Context.MODE_PRIVATE).getString("id", "guest")
 
-        battleStartButton.setOnClickListener {
-            println("本日の接続切れ回数は" + connectionLossNum + "回です。")
-            if (Integer.parseInt(connectionLossNum) <= 10) {
-                val intent = Intent(this@MainActivity, Matching::class.java)
-                intent.putExtra("id", this.id)
-                startActivity(intent)
-            } else {
-                AlertDialog.Builder(this@MainActivity)
-                        .setTitle("ペナルティ")
-                        .setMessage("1日の接続切れ回数の限度を超えました。" + "\n" + "本日は対局出来ません。")
-                        .setPositiveButton("OK", null)
-                        .show()
-            }
-        }
-
-        //ログイン状態とゲスト状態の分岐処理
+        //ログインボタン又はマイページボタンを押したときにstartするIntent
         var intent: Intent
+
         if (id == "guest") {
-            /* ---------------------------------ゲストの処理--------------------------------- */
-            println("プリファレンスにIDが保存されていません。id[$id]で実行します。")
-
             battleStartButton.text = "ゲストで対局"
-            myPageButton.text = "ログイン"
-
-            //会員登録ページへ遷移
+            this.myPageButton.text = "ログイン"
             intent = Intent(this@MainActivity, Login::class.java)
         } else {
             /* ---------------------------------会員の処理--------------------------------- */
-            println("プリファレンスにIDが保存されていました。id[$id]で実行します。")
+            updateConnectionLossCount(id);
 
-            //ビューの更新
             battleStartButton.text = "対局開始"
             myPageButton.text = "マイページ"
-
-            //マイページへ遷移
             intent = Intent(this@MainActivity, MyPage::class.java)
-        }    //-----------終了:ログイン状態とゲスト状態の分岐処理
-        myPageButton.setOnClickListener {
+        }
+
+        this.myPageButton.setOnClickListener {
             startActivity(intent)
+        }
+
+        battleStartButton.setOnClickListener {
+            println("本日の接続切れ回数は" + connectionLossCount + "回です。")
+            if (connectionLossCount <= 10) {
+                val intent = Intent(this@MainActivity, Matching::class.java).putExtra("id", id)
+                startActivity(intent)
+            } else {
+                AlertDialog.Builder(this@MainActivity)
+                            .setTitle("ペナルティ")
+                            .setMessage("1日の接続切れ回数の限度を超えました。" + "\n" + "本日は対局出来ません。")
+                            .setPositiveButton("OK", null)
+                            .show()
+            }
+        }
+    }
+
+    //ユーザが会員に限る、ゲスト時に呼び出してはいけない
+    private fun updateConnectionLossCount(userId: String){
+        thread{
+            val url = URL(ServerConfig.URL + "MainActivityPage")
+
+            val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
+            connection.doOutput = true
+            connection.requestMethod = "POST"
+
+            val printWriter = PrintWriter(connection.outputStream)
+            printWriter.print("id=" + userId)
+            printWriter.close()
+
+            if (connection.responseCode == HttpURLConnection.HTTP_OK) {
+                val isr = InputStreamReader(connection.inputStream, StandardCharsets.UTF_8)
+                val reader = BufferedReader(isr)
+                this.connectionLossCount = Integer.parseInt(reader.readLine())
+            }
         }
     }
 
@@ -88,19 +105,5 @@ class MainActivity : Activity() {
         }
         return super.dispatchKeyEvent(event)
     }
-
-    public override fun onStart() {
-        super.onStart()
-        println("MainActivity:onStart()...")
-    }
-
-    public override fun onResume() {
-        super.onResume()
-        println("MainActivity:onResume()...")
-    }
-
-    public override fun onStop() {
-        super.onStop()
-        println("MainActivity:onStop()...")
-    }
 }
+
