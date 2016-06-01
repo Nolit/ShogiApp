@@ -9,7 +9,6 @@ import android.view.KeyEvent
 import android.widget.Button
 import butterknife.bindView
 import com.uty.shogi.R
-import com.uty.shogi.servletClients.MainActivityServlet
 import com.uty.shogi.settings.ServerConfig
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -30,7 +29,7 @@ class MainActivity : Activity() {
     //***適切な名前に変更したいけど思いつかない***
     private val myPageButton: Button by bindView(R.id.intentMyPage)
 
-    public override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
@@ -39,7 +38,7 @@ class MainActivity : Activity() {
         //プリファレンスに保存したIDを参照するのはここに限られ、以降の処理ではIntentを使用してIDを渡す
         val id: String = getSharedPreferences("tt4", Context.MODE_PRIVATE).getString("id", "guest")
 
-        //ログインボタン又はマイページボタンを押したときにstartするIntent
+        //myPageButtonを押したときにstartするIntent
         var intent: Intent
 
         if (id == "guest") {
@@ -74,7 +73,7 @@ class MainActivity : Activity() {
         }
     }
 
-    //ユーザが会員に限る、ゲスト時に呼び出してはいけない
+    //ユーザが会員時に限る、ゲスト時に呼び出してはいけない
     private fun updateConnectionLossCount(userId: String){
         thread{
             val url = URL(ServerConfig.URL + "MainActivityPage")
@@ -93,6 +92,12 @@ class MainActivity : Activity() {
                 this.connectionLossCount = Integer.parseInt(reader.readLine())
             }
         }
+    }
+
+    //オーバーライドしないと下記の例外発生(処理は続けられる)
+    //Performing stop of activity that is not resumed
+    override fun onResume(){
+        super.onResume()
     }
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
