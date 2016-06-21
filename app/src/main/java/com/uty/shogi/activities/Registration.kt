@@ -32,12 +32,12 @@ class Registration : Activity() {
         setContentView(R.layout.registration)
 
         intentLoginButton.setOnClickListener {
-            val intent = Intent(this@Registration, Login::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
 
         cancelButton.setOnClickListener {
-            val intent = Intent(this@Registration, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
@@ -45,7 +45,8 @@ class Registration : Activity() {
             RegistrationServlet(formName.text.toString(),
                                 formMail.text.toString(),
                                 formPassword.text.toString(),
-                                formConfirmPassword.text.toString()).execute(this@Registration)
+                                formConfirmPassword.text.toString()
+                                ).execute(this)
         }
 
     }

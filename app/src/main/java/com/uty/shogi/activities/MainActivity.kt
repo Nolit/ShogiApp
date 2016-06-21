@@ -34,8 +34,6 @@ class MainActivity : Activity() {
 
         setContentView(R.layout.activity_main)
 
-        //会員を一意に識別するID
-        //プリファレンスに保存したIDを参照するのはここに限られ、以降の処理ではIntentを使用してIDを渡す
         val id: String = getSharedPreferences("tt4", Context.MODE_PRIVATE).getString("id", "guest")
 
         //myPageButtonを押したときにstartするIntent
@@ -44,27 +42,24 @@ class MainActivity : Activity() {
         if (id == "guest") {
             battleStartButton.text = "ゲストで対局"
             this.myPageButton.text = "ログイン"
-            intent = Intent(this@MainActivity, Login::class.java)
+            intent = Intent(this, Login::class.java)
         } else {
             /* ---------------------------------会員の処理--------------------------------- */
             updateConnectionLossCount(id);
 
             battleStartButton.text = "対局開始"
             myPageButton.text = "マイページ"
-            intent = Intent(this@MainActivity, MyPage::class.java)
+            intent = Intent(this, MyPage::class.java)
         }
-
-        this.myPageButton.setOnClickListener {
-            startActivity(intent)
-        }
+        this.myPageButton.setOnClickListener { startActivity(intent) }
 
         battleStartButton.setOnClickListener {
             println("本日の接続切れ回数は" + connectionLossCount + "回です。")
             if (connectionLossCount <= 10) {
-                val intent = Intent(this@MainActivity, Matching::class.java).putExtra("id", id)
+                val intent = Intent(this, Matching::class.java).putExtra("id", id)
                 startActivity(intent)
             } else {
-                AlertDialog.Builder(this@MainActivity)
+                AlertDialog.Builder(this)
                             .setTitle("ペナルティ")
                             .setMessage("1日の接続切れ回数の限度を超えました。" + "\n" + "本日は対局出来ません。")
                             .setPositiveButton("OK", null)

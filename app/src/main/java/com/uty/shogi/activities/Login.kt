@@ -23,7 +23,6 @@ class Login : Activity() {
     internal val intentRegistrationButton: Button by bindView(R.id.intentRegistrationButton)
 
     internal val cancelButton: Button by bindView(R.id.canselButton)
-
     internal val loginButton: Button by bindView(R.id.registrationButton)
 
     public override fun onCreate(savedInstanceState: Bundle?) {

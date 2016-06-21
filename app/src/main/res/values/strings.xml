@@ -1,6 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Shogi</string>
-    <string name="title_activity_matching">Matching</string>
+
+    <string-array name="list">
+        <item>称号</item>
+        <item>称号</item>
+        <item>称号</item>
+        <item>称号</item>
+        <item>称号</item>
+    </string-array>
+
+    <string name="app_name">OiC将棋</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_name_original">OiC将棋</string>
+    <string name="title_activity_discuttion">Discuttion</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_battle">Battle</string>
     <string name="title_activity_my_page">MyPage</string>
     <string name="title_activity_login">Login</string>
+
+    <string name="title_activity_matching">Matching</string>
+
+
 </resources>
