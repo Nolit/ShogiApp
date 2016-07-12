@@ -1,4 +1,4 @@
-package com.uty.shogi;
+package com.uty.shogiapp;
 
 import org.junit.Test;
 

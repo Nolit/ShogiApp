@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/friendNameButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/q_button_button4"
+            android:layout_weight="1"
+            android:text="フレンド名"
+            android:textSize="20sp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/friendTitleNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="称号名"
+            android:textSize="15sp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/friendClassPositionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="級"
+            android:textSize="15sp"
+            android:textColor="#000000" />
+
+    	<TextView
+            android:id="@+id/friendRateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="レート"
+            android:textSize="15sp"
+            android:textColor="#000000" />
+
+    	<Button
+    	    android:id="@+id/matchingButton"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="対局"
+    	    android:textSize="15sp"
+    	    android:layout_gravity="right"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

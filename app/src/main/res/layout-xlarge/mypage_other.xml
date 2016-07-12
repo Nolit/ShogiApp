@@ -1,0 +1,230 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/kaya" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button3"
+            android:text="ユーザー名"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/avatarImageView"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/b2" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="2.26"
+            android:gravity="center"
+            android:text="称号名"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/linearLayout1"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@+id/linearLayout1" >
+
+        <TableRow
+            android:id="@+id/classPositionRow"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/classPositionRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="級位"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/classPositionRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10級"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rateRow"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/rateRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="レート"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/rateRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/battleNumRow"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/battleNumRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="対局回数"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/battleNumRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0戦"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/battleRecordRow"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/battleRecordRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="戦績"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/battleRecordRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0勝0敗0分"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/streakRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/streakRow1"
+                android:layout_width="wrap_content"
+                android:text="ストリーク"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/streakRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0連勝中"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/maxStreakRow"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/maxStreakRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最高連続勝利数"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/maxStreakRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0回"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/disconnectedRow"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/disconnectedRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="接続切れ回数"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/disconnectedRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0回"
+                android:textSize="20sp" />
+        </TableRow>
+    </TableLayout>
+
+    <GridLayout
+        android:id="@+id/buttonAvoveLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="200dp"
+        android:columnCount="1" >
+
+        <Button
+            android:id="@+id/friendRequestButton"
+            android:layout_width="400dp"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_gravity="center"
+            android:background="@drawable/corner_round"
+            android:text="フレンド申請"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/backTopButton"
+            android:layout_width="400dp"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_row="1"
+            android:background="@drawable/corner_round"
+            android:text="Topに戻る"
+            android:textSize="30sp" />
+
+    </GridLayout>
+
+</RelativeLayout>

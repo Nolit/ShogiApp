@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/q_background_tatami" >
+
+    <include
+            android:id="@+id/battle_template"
+            layout="@layout/battle_template"/>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="80dp"
+        android:background="@color/black_overlay" >
+
+        <Button
+            android:id="@+id/prevButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="前"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/nextButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="次"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/reverseButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="反転"
+            android:textSize="20sp" />
+
+        <ScrollView
+            android:id="@+id/kifuNum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+			android:background="@android:color/background_light">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>
