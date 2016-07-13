@@ -44,7 +44,6 @@ class MainActivity : Activity() {
             this.myPageButton.text = "ログイン"
             intent = Intent(this, Login::class.java)
         } else {
-            /* ---------------------------------会員の処理--------------------------------- */
             updateConnectionLossCount(id);
 
             battleStartButton.text = "対局開始"

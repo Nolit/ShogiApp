@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/q_background_tatami" >
+
+    <include
+        android:id="@+id/battle_template"
+        layout="@layout/battle_template" />
+
+   <Button
+       android:id="@+id/resign"
+       android:layout_width="35dp"
+       android:layout_height="35dp"
+       android:background="@drawable/corner_round"
+       android:text="投了"
+       android:textSize="15sp"
+       android:layout_alignParentTop="true"
+       android:layout_alignParentEnd="true" />
+
+   <TextView
+       android:id="@+id/order"
+       android:layout_width="70dp"
+       android:layout_height="45dp"
+       android:layout_alignTop="@+id/resign"
+       android:layout_marginRight="0dp"
+       android:layout_marginTop="36dp"
+       android:layout_toLeftOf="@+id/resign"
+       android:text=""
+       android:textColor="#000000"
+       android:textSize="30sp" />
+
+</RelativeLayout>

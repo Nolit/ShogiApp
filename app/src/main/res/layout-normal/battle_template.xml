@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-	<ImageView
+    <ImageView
         android:id="@+id/yourAvatarImage"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:src="@drawable/res_noimage" />
 
@@ -14,6 +14,7 @@
         android:id="@+id/myTimeText"
         android:layout_width="30dp"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/myNameText"
         android:layout_alignTop="@+id/myAvatarImage"
         android:layout_toLeftOf="@+id/myAvatarImage"
         android:gravity="right"
@@ -31,979 +32,81 @@
         android:textColor="#00000000"
         android:textSize="20sp" />
 
-    <FrameLayout
-        android:id="@+id/frameLayout1"
-        android:layout_width="240dp"
-        android:layout_height="138dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="8dp" >
-	<GridLayout
-        android:id="@+id/myMochikomaGrid"
-        android:layout_width="240dp"
-        android:layout_height="138dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:background="@mipmap/kaya"
-        android:columnCount="4"
-        android:rowCount="2" >
-
-        <ImageButton
-            android:id="@+id/myMochikomaImageButton00"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border"
-            android:contentDescription="@string/app_name"/>
-
-        <ImageButton
-            android:id="@+id/myMochikomaImageButton01"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/myMochikomaImageButton02"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/myMochikomaImageButton03"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/myMochikomaImageButton10"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/myMochikomaImageButton11"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/myMochikomaImageButton12"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/myMochikomaImageButton13"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-    </GridLayout>
-        <GridLayout
-            android:id="@+id/myMochikomaSuGrid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:columnCount="4"
-            android:rowCount="2" >
-
-            <TextView
-                android:id="@+id/myMochikomaSuText00"
-                android:layout_marginLeft="2sp"
-                android:layout_marginTop="45sp"
-                android:text="  "
-                android:textColor="#8a0722"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/myMochikomaSuText01"
-                android:layout_marginLeft="50sp"
-                android:layout_marginTop="45sp"
-                android:text="  "
-                android:textColor="#8a0722"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/myMochikomaSuText02"
-                android:layout_marginLeft="50sp"
-                android:layout_marginTop="45sp"
-                android:text="  "
-                android:textColor="#8a0722"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/myMochikomaSuText03"
-                android:layout_marginLeft="50sp"
-                android:layout_marginTop="45sp"
-                android:text="  "
-                android:textColor="#8a0722"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/myMochikomaSuText10"
-                android:layout_marginLeft="2sp"
-                android:layout_marginTop="48sp"
-                android:text="  "
-                android:textColor="#8a0722"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/myMochikomaSuText11"
-                android:layout_marginLeft="50sp"
-                android:layout_marginTop="48sp"
-                android:text="  "
-                android:textColor="#8a0722"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/myMochikomaSuText12"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="48dp"
-                android:text="  "
-                android:textColor="#8a0722"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/myMochikomaSuText13"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="48dp"
-                android:text="  "
-                android:textColor="#8a0722"
-                android:textSize="18sp" />
-        </GridLayout>
-    </FrameLayout>
-
-    <GridLayout
-        android:id="@+id/boardGrid"
-        android:layout_width="540dp"
-        android:layout_height="621dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@mipmap/kaya"
-        android:columnCount="9"
-        android:rowCount="9" >
-
-        <ImageButton
-            android:id="@+id/boardImageButton00"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton01"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton02"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="2"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton03"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="3"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton04"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton05"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton06"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="6"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton07"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="7"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton08"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton10"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton11"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton12"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="2"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton13"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="3"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton14"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton15"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton16"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="6"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton17"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="7"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton18"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="1"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton20"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton21"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton22"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="2"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton23"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="3"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton24"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton25"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton26"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="6"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton27"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="7"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton28"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton30"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton31"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton32"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="2"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton33"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="3"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton34"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton35"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton36"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="6"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton37"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="7"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton38"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="3"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton40"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="4"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton41"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="4"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton42"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="4"
-            android:layout_gravity="left|top"
-            android:layout_row="2"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton43"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="4"
-            android:layout_gravity="left|top"
-            android:layout_row="3"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton44"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="4"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton45"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="4"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton46"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="4"
-            android:layout_gravity="left|top"
-            android:layout_row="6"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton47"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="4"
-            android:layout_gravity="left|top"
-            android:layout_row="7"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton48"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="4"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton50"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="5"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton51"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="5"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton52"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="5"
-            android:layout_gravity="left|top"
-            android:layout_row="2"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton53"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="5"
-            android:layout_gravity="left|top"
-            android:layout_row="3"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton54"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="5"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton55"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="5"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton56"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="5"
-            android:layout_gravity="left|top"
-            android:layout_row="6"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton57"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="5"
-            android:layout_gravity="left|top"
-            android:layout_row="7"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton58"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="5"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton60"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="6"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton61"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="6"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton62"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="6"
-            android:layout_gravity="left|top"
-            android:layout_row="2"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton63"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="6"
-            android:layout_gravity="left|top"
-            android:layout_row="3"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton64"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="6"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton65"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="6"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton66"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="6"
-            android:layout_gravity="left|top"
-            android:layout_row="6"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton67"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="6"
-            android:layout_gravity="left|top"
-            android:layout_row="7"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton68"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="6"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton70"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="7"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton71"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="7"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton72"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="7"
-            android:layout_gravity="left|top"
-            android:layout_row="2"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton73"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="7"
-            android:layout_gravity="left|top"
-            android:layout_row="3"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton74"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="7"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton75"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="7"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton76"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="7"
-            android:layout_gravity="left|top"
-            android:layout_row="6"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton77"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="7"
-            android:layout_gravity="left|top"
-            android:layout_row="7"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton78"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="7"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton80"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="8"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton81"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="8"
-            android:layout_gravity="left|top"
-            android:layout_row="1"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton82"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="8"
-            android:layout_gravity="left|top"
-            android:layout_row="2"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton83"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="8"
-            android:layout_gravity="left|top"
-            android:layout_row="3"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton84"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="8"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton85"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="8"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton86"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="8"
-            android:layout_gravity="left|top"
-            android:layout_row="6"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton87"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="8"
-            android:layout_gravity="left|top"
-            android:layout_row="7"
-            android:background="@drawable/border" />
-
-        <ImageButton
-            android:id="@+id/boardImageButton88"
-            android:layout_width="60dp"
-            android:layout_height="69dp"
-            android:layout_column="8"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:background="@drawable/border" />
-    </GridLayout>
-
-
-
     <ImageView
         android:id="@+id/myAvatarImage"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/frameLayout1"
         android:src="@drawable/res_noimage" />
 
     <TextView
         android:id="@+id/myClazzText"
         android:layout_width="40dp"
-        android:layout_height="35dp"
-        android:layout_alignLeft="@+id/myNameText"
-        android:layout_alignTop="@+id/myTimeText"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myTimeText"
         android:layout_toLeftOf="@+id/myAvatarImage"
-        android:gravity="right"
         android:text="10級"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/yourNameText"
+        android:id="@+id/myNameText"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/yourAvatarImage"
-        android:layout_alignLeft="@+id/yourClazzText"
-        android:layout_alignRight="@+id/yourClazzText"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/myClazzText"
+        android:gravity="right"
         android:scrollHorizontally="true"
-        android:text="YourName"
+        android:text="MyName"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/yourClazzText"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/yourAvatarImage"
         android:layout_alignLeft="@+id/yourTimeText"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/frameLayout"
         android:text="10級"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/yourNameText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/yourAvatarImage"
+        android:scrollHorizontally="true"
+        android:text="YourName"
+        android:textColor="#000000"
+        android:textSize="15sp" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="240dp"
-        android:layout_height="138dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
-
-
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_alignRight="@+id/myTimeText"
+        android:layout_alignTop="@+id/resign"
+        android:layout_marginRight="4dp" >
 
         <GridLayout
             android:id="@+id/yourMochikomaGrid"
-            android:layout_width="240dp"
-            android:layout_height="138dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:layout_alignRight="@+id/myTimeText"
+            android:layout_alignTop="@+id/resign"
+            android:layout_marginRight="4dp"
             android:background="@mipmap/kaya"
             android:columnCount="4"
             android:rowCount="2" >
 
             <ImageButton
                 android:id="@+id/yourMochikomaImageButton00"
-                android:layout_width="60dp"
-                android:layout_height="69dp"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:layout_column="0"
                 android:layout_gravity="left|top"
                 android:layout_row="0"
@@ -1011,8 +114,8 @@
 
             <ImageButton
                 android:id="@+id/yourMochikomaImageButton01"
-                android:layout_width="60dp"
-                android:layout_height="69dp"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:layout_column="1"
                 android:layout_gravity="left|top"
                 android:layout_row="0"
@@ -1020,8 +123,8 @@
 
             <ImageButton
                 android:id="@+id/yourMochikomaImageButton02"
-                android:layout_width="60dp"
-                android:layout_height="69dp"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:layout_column="2"
                 android:layout_gravity="left|top"
                 android:layout_row="0"
@@ -1029,8 +132,8 @@
 
             <ImageButton
                 android:id="@+id/yourMochikomaImageButton03"
-                android:layout_width="60dp"
-                android:layout_height="69dp"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:layout_column="3"
                 android:layout_gravity="left|top"
                 android:layout_row="0"
@@ -1038,8 +141,8 @@
 
             <ImageButton
                 android:id="@+id/yourMochikomaImageButton10"
-                android:layout_width="60dp"
-                android:layout_height="69dp"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:layout_column="0"
                 android:layout_gravity="left|top"
                 android:layout_row="1"
@@ -1047,8 +150,8 @@
 
             <ImageButton
                 android:id="@+id/yourMochikomaImageButton11"
-                android:layout_width="60dp"
-                android:layout_height="69dp"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:layout_column="1"
                 android:layout_gravity="left|top"
                 android:layout_row="1"
@@ -1056,8 +159,8 @@
 
             <ImageButton
                 android:id="@+id/yourMochikomaImageButton12"
-                android:layout_width="60dp"
-                android:layout_height="69dp"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:layout_column="2"
                 android:layout_gravity="left|top"
                 android:layout_row="1"
@@ -1065,13 +168,14 @@
 
             <ImageButton
                 android:id="@+id/yourMochikomaImageButton13"
-                android:layout_width="60dp"
-                android:layout_height="69dp"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:layout_column="3"
                 android:layout_gravity="left|top"
                 android:layout_row="1"
                 android:background="@drawable/border" />
         </GridLayout>
+
         <GridLayout
             android:id="@+id/yourMochikomaSuGrid"
             android:layout_width="match_parent"
@@ -1084,88 +188,994 @@
 
             <TextView
                 android:id="@+id/yourMochikomaSuText00"
-                android:layout_gravity="left"
                 android:layout_marginLeft="0dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="25dp"
                 android:text="  "
                 android:textColor="#8a0722"
-                android:textSize="18sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/yourMochikomaSuText01"
-                android:layout_gravity="left"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
                 android:text="  "
                 android:textColor="#8a0722"
-                android:textSize="18sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/yourMochikomaSuText02"
-                android:layout_gravity="left"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
                 android:text="  "
                 android:textColor="#8a0722"
-                android:textSize="18sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/yourMochikomaSuText03"
-                android:layout_gravity="left"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
                 android:text="  "
                 android:textColor="#8a0722"
-                android:textSize="18sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/yourMochikomaSuText10"
-                android:layout_gravity="left"
                 android:layout_marginLeft="0dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="27dp"
                 android:text="  "
                 android:textColor="#8a0722"
-                android:textSize="18sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/yourMochikomaSuText11"
-                android:layout_gravity="left"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="27dp"
                 android:text="  "
                 android:textColor="#8a0722"
-                android:textSize="18sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/yourMochikomaSuText12"
-                android:layout_gravity="left"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="27dp"
                 android:text="  "
                 android:textColor="#8a0722"
-                android:textSize="18sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/yourMochikomaSuText13"
-                android:layout_gravity="left"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="27dp"
                 android:text="  "
                 android:textColor="#8a0722"
-                android:textSize="18sp" />
+                android:textSize="10sp" />
         </GridLayout>
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/myNameText"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/myAvatarImage"
-        android:layout_toRightOf="@+id/frameLayout1"
-        android:gravity="right"
-        android:scrollHorizontally="true"
-        android:text="MyName"
-        android:textColor="#000000"
-        android:textSize="30sp" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="8dp" >
+
+        <GridLayout
+            android:id="@+id/myMochikomaGrid"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@mipmap/kaya"
+            android:columnCount="4"
+            android:rowCount="2" >
+
+            <ImageButton
+                android:id="@+id/myMochikomaImageButton00"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_column="0"
+                android:layout_gravity="left|top"
+                android:layout_row="0"
+                android:background="@drawable/border"
+                android:contentDescription="@string/app_name"/>
+
+            <ImageButton
+                android:id="@+id/myMochikomaImageButton01"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="0"
+                android:background="@drawable/border" />
+
+            <ImageButton
+                android:id="@+id/myMochikomaImageButton02"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_column="2"
+                android:layout_gravity="left|top"
+                android:layout_row="0"
+                android:background="@drawable/border" />
+
+            <ImageButton
+                android:id="@+id/myMochikomaImageButton03"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_column="3"
+                android:layout_gravity="left|top"
+                android:layout_row="0"
+                android:background="@drawable/border" />
+
+            <ImageButton
+                android:id="@+id/myMochikomaImageButton10"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_column="0"
+                android:layout_gravity="left|top"
+                android:layout_row="1"
+                android:background="@drawable/border" />
+
+            <ImageButton
+                android:id="@+id/myMochikomaImageButton11"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="1"
+                android:background="@drawable/border" />
+
+            <ImageButton
+                android:id="@+id/myMochikomaImageButton12"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_column="2"
+                android:layout_gravity="left|top"
+                android:layout_row="1"
+                android:background="@drawable/border" />
+
+            <ImageButton
+                android:id="@+id/myMochikomaImageButton13"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_column="3"
+                android:layout_gravity="left|top"
+                android:layout_row="1"
+                android:background="@drawable/border" />
+        </GridLayout>
+
+        <GridLayout
+            android:id="@+id/myMochikomaSuGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:columnCount="4"
+            android:rowCount="2" >
+
+            <TextView
+                android:id="@+id/myMochikomaSuText00"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="25dp"
+                android:text="  "
+                android:textColor="#8a0722"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/myMochikomaSuText01"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:text="  "
+                android:textColor="#8a0722"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/myMochikomaSuText02"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:text="  "
+                android:textColor="#8a0722"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/myMochikomaSuText03"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:text="  "
+                android:textColor="#8a0722"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/myMochikomaSuText10"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="27dp"
+                android:text="  "
+                android:textColor="#8a0722"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/myMochikomaSuText11"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="27dp"
+                android:text="  "
+                android:textColor="#8a0722"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/myMochikomaSuText12"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="27dp"
+                android:text="  "
+                android:textColor="#8a0722"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/myMochikomaSuText13"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="27dp"
+                android:text="  "
+                android:textColor="#8a0722"
+                android:textSize="10sp" />
+        </GridLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayoutAll"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_alignRight="@+id/resign"
+        android:layout_centerVertical="true" >
+
+    <GridLayout
+        android:id="@+id/boardGrid"
+        android:layout_width="315dp"
+        android:layout_height="360dp"
+        android:layout_centerVertical="true"
+        android:background="@mipmap/kaya"
+        android:columnCount="9"
+        android:rowCount="9"
+        android:layout_centerHorizontal="true"
+        android:layout_alignEnd="@+id/myAvatarImage"
+        android:layout_gravity="center_horizontal">
+
+        <ImageButton
+            android:id="@+id/boardImageButton00"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton01"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton02"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="2"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton03"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="3"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton04"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="4"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton05"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="5"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton06"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="6"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton07"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="7"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton08"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="8"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton10"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton11"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton12"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_gravity="left|top"
+            android:layout_row="2"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton13"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_gravity="left|top"
+            android:layout_row="3"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton14"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_gravity="left|top"
+            android:layout_row="4"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton15"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_gravity="left|top"
+            android:layout_row="5"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton16"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_gravity="left|top"
+            android:layout_row="6"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton17"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_gravity="left|top"
+            android:layout_row="7"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton18"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_gravity="left|top"
+            android:layout_row="8"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton20"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="2"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton21"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="2"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton22"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="2"
+            android:layout_gravity="left|top"
+            android:layout_row="2"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton23"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="2"
+            android:layout_gravity="left|top"
+            android:layout_row="3"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton24"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="2"
+            android:layout_gravity="left|top"
+            android:layout_row="4"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton25"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="2"
+            android:layout_gravity="left|top"
+            android:layout_row="5"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton26"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="2"
+            android:layout_gravity="left|top"
+            android:layout_row="6"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton27"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="2"
+            android:layout_gravity="left|top"
+            android:layout_row="7"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton28"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="2"
+            android:layout_gravity="left|top"
+            android:layout_row="8"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton30"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="3"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton31"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="3"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton32"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="3"
+            android:layout_gravity="left|top"
+            android:layout_row="2"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton33"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="3"
+            android:layout_gravity="left|top"
+            android:layout_row="3"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton34"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="3"
+            android:layout_gravity="left|top"
+            android:layout_row="4"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton35"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="3"
+            android:layout_gravity="left|top"
+            android:layout_row="5"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton36"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="3"
+            android:layout_gravity="left|top"
+            android:layout_row="6"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton37"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="3"
+            android:layout_gravity="left|top"
+            android:layout_row="7"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton38"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="3"
+            android:layout_gravity="left|top"
+            android:layout_row="8"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton40"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton41"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton42"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_gravity="left|top"
+            android:layout_row="2"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton43"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_gravity="left|top"
+            android:layout_row="3"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton44"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_gravity="left|top"
+            android:layout_row="4"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton45"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_gravity="left|top"
+            android:layout_row="5"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton46"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_gravity="left|top"
+            android:layout_row="6"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton47"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_gravity="left|top"
+            android:layout_row="7"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton48"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_gravity="left|top"
+            android:layout_row="8"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton50"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="5"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton51"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="5"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton52"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="5"
+            android:layout_gravity="left|top"
+            android:layout_row="2"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton53"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="5"
+            android:layout_gravity="left|top"
+            android:layout_row="3"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton54"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="5"
+            android:layout_gravity="left|top"
+            android:layout_row="4"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton55"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="5"
+            android:layout_gravity="left|top"
+            android:layout_row="5"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton56"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="5"
+            android:layout_gravity="left|top"
+            android:layout_row="6"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton57"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="5"
+            android:layout_gravity="left|top"
+            android:layout_row="7"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton58"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="5"
+            android:layout_gravity="left|top"
+            android:layout_row="8"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton60"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="6"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton61"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="6"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton62"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="6"
+            android:layout_gravity="left|top"
+            android:layout_row="2"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton63"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="6"
+            android:layout_gravity="left|top"
+            android:layout_row="3"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton64"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="6"
+            android:layout_gravity="left|top"
+            android:layout_row="4"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton65"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="6"
+            android:layout_gravity="left|top"
+            android:layout_row="5"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton66"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="6"
+            android:layout_gravity="left|top"
+            android:layout_row="6"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton67"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="6"
+            android:layout_gravity="left|top"
+            android:layout_row="7"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton68"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="6"
+            android:layout_gravity="left|top"
+            android:layout_row="8"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton70"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="7"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton71"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="7"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton72"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="7"
+            android:layout_gravity="left|top"
+            android:layout_row="2"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton73"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="7"
+            android:layout_gravity="left|top"
+            android:layout_row="3"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton74"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="7"
+            android:layout_gravity="left|top"
+            android:layout_row="4"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton75"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="7"
+            android:layout_gravity="left|top"
+            android:layout_row="5"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton76"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="7"
+            android:layout_gravity="left|top"
+            android:layout_row="6"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton77"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="7"
+            android:layout_gravity="left|top"
+            android:layout_row="7"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton78"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="7"
+            android:layout_gravity="left|top"
+            android:layout_row="8"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton80"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="8"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton81"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="8"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton82"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="8"
+            android:layout_gravity="left|top"
+            android:layout_row="2"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton83"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="8"
+            android:layout_gravity="left|top"
+            android:layout_row="3"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton84"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="8"
+            android:layout_gravity="left|top"
+            android:layout_row="4"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton85"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="8"
+            android:layout_gravity="left|top"
+            android:layout_row="5"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton86"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="8"
+            android:layout_gravity="left|top"
+            android:layout_row="6"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton87"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="8"
+            android:layout_gravity="left|top"
+            android:layout_row="7"
+            android:background="@drawable/border" />
+
+        <ImageButton
+            android:id="@+id/boardImageButton88"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_column="8"
+            android:layout_gravity="left|top"
+            android:layout_row="8"
+            android:background="@drawable/border" />
+    </GridLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/outeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="59dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="140dp"
+        android:text="王手"
+        android:textColor="#00000000"
+        android:textSize="60sp" />
 </RelativeLayout>

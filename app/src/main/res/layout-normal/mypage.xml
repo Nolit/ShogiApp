@@ -280,6 +280,14 @@
             android:layout_row="1"
             android:text="ログアウト"
             android:textSize="15sp" />
+        <Button
+            android:id="@+id/shogiProblem"
+            android:layout_width="100dp"
+            android:layout_column="0"
+            android:layout_marginTop="14dp"
+            android:layout_row="2"
+            android:text="詰め将棋"
+            android:textSize="15sp" />
 
     </GridLayout>
 
@@ -289,7 +297,7 @@
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/q_background_tatami"
         android:gravity="center"
         android:text="設定"
