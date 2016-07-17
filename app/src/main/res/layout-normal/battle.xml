@@ -3,7 +3,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/q_background_tatami" >
+    <ImageView
+        android:id="@+id/yourAvatarImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/res_noimage" />
 
+    <TextView
+        android:id="@+id/myTimeText"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/myNameText"
+        android:layout_alignTop="@+id/myAvatarImage"
+        android:layout_toLeftOf="@+id/myAvatarImage"
+        android:gravity="right"
+        android:text="10:00"
+        android:textColor="#00000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/yourTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/yourAvatarImage"
+        android:text="10:00"
+        android:textColor="#00000000"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/myAvatarImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/res_noimage"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="23dp" />
+
+    <TextView
+        android:id="@+id/myClazzText"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myTimeText"
+        android:text="10級"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_toStartOf="@+id/resign" />
+
+    <TextView
+        android:id="@+id/myNameText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:scrollHorizontally="true"
+        android:text="MyName"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/myClazzText"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/yourClazzText"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/yourAvatarImage"
+        android:layout_alignLeft="@+id/yourTimeText"
+        android:text="10級"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/yourNameText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/yourAvatarImage"
+        android:scrollHorizontally="true"
+        android:text="YourName"
+        android:textColor="#000000"
+        android:textSize="15sp" />
     <include
         android:id="@+id/battle_template"
         layout="@layout/battle_template" />
@@ -16,7 +96,7 @@
        android:text="投了"
        android:textSize="15sp"
        android:layout_alignParentTop="true"
-       android:layout_alignParentEnd="true" />
+       android:layout_centerHorizontal="true" />
 
    <TextView
        android:id="@+id/order"

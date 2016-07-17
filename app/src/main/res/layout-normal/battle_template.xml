@@ -3,94 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ImageView
-        android:id="@+id/yourAvatarImage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/res_noimage" />
 
-    <TextView
-        android:id="@+id/myTimeText"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/myNameText"
-        android:layout_alignTop="@+id/myAvatarImage"
-        android:layout_toLeftOf="@+id/myAvatarImage"
-        android:gravity="right"
-        android:text="10:00"
-        android:textColor="#00000000"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/yourTimeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/yourAvatarImage"
-        android:text="10:00"
-        android:textColor="#00000000"
-        android:textSize="20sp" />
-
-    <ImageView
-        android:id="@+id/myAvatarImage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/frameLayout1"
-        android:src="@drawable/res_noimage" />
-
-    <TextView
-        android:id="@+id/myClazzText"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/myTimeText"
-        android:layout_toLeftOf="@+id/myAvatarImage"
-        android:text="10級"
-        android:textColor="#000000"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/myNameText"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/myClazzText"
-        android:gravity="right"
-        android:scrollHorizontally="true"
-        android:text="MyName"
-        android:textColor="#000000"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/yourClazzText"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/yourAvatarImage"
-        android:layout_alignLeft="@+id/yourTimeText"
-        android:text="10級"
-        android:textColor="#000000"
-        android:textSize="15sp" />
-
-
-    <TextView
-        android:id="@+id/yourNameText"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/yourAvatarImage"
-        android:scrollHorizontally="true"
-        android:text="YourName"
-        android:textColor="#000000"
-        android:textSize="15sp" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="140dp"
         android:layout_height="80dp"
-        android:layout_alignRight="@+id/myTimeText"
-        android:layout_alignTop="@+id/resign"
-        android:layout_marginRight="4dp" >
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/frameLayoutAll">
 
         <GridLayout
             android:id="@+id/yourMochikomaGrid"
@@ -256,9 +177,10 @@
         android:id="@+id/frameLayout1"
         android:layout_width="140dp"
         android:layout_height="80dp"
+        android:layout_gravity="left"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="8dp" >
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/frameLayoutAll">
 
         <GridLayout
             android:id="@+id/myMochikomaGrid"
