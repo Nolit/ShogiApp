@@ -4,6 +4,7 @@ import java.net.URL
 import com.orangesignal.csv.Csv
 import com.orangesignal.csv.CsvConfig
 import com.orangesignal.csv.handlers.StringArrayListHandler
+import com.squareup.moshi.Moshi
 import java.io.File
 
 class BoardBuilder{
@@ -15,57 +16,91 @@ class BoardBuilder{
     fun default(){
         boardInstance.turn = sente
 
+        val factory:KomaFactory = KomaFactory(sente, gote, boardInstance)
+
         for (i in 0..8) {
-            boardInstance.board[6][i] = Koma(sente, Fu(boardInstance))
+            boardInstance.board[6][i] = factory.createKoma(Koma.Type.FU, Player.Type.SENTE)
         }
 
         for (i in 0..8) {
-            boardInstance.board[2][i] = Koma(gote, Fu(boardInstance))
+            boardInstance.board[2][i] = factory.createKoma(Koma.Type.FU, Player.Type.GOTE)
         }
 
-        boardInstance.board[8][0] = Koma(sente, Kyosha(boardInstance))
-        boardInstance.board[8][8] = Koma(sente, Kyosha(boardInstance))
-        boardInstance.board[0][0] = Koma(gote, Kyosha(boardInstance))
-        boardInstance.board[0][8] = Koma(gote, Kyosha(boardInstance))
+        boardInstance.board[8][0] = factory.createKoma(Koma.Type.KYOSHA, Player.Type.SENTE)
+        boardInstance.board[8][8] = factory.createKoma(Koma.Type.KYOSHA, Player.Type.SENTE)
+        boardInstance.board[0][0] = factory.createKoma(Koma.Type.KYOSHA, Player.Type.GOTE)
+        boardInstance.board[0][8] = factory.createKoma(Koma.Type.KYOSHA, Player.Type.GOTE)
 
-        boardInstance.board[8][1] = Koma(sente, Keima(boardInstance))
-        boardInstance.board[8][7] = Koma(sente, Keima(boardInstance))
-        boardInstance.board[0][1] = Koma(gote, Keima(boardInstance))
-        boardInstance.board[0][7] = Koma(gote, Keima(boardInstance))
+        boardInstance.board[8][1] = factory.createKoma(Koma.Type.KEIMA, Player.Type.SENTE)
+        boardInstance.board[8][7] = factory.createKoma(Koma.Type.KEIMA, Player.Type.SENTE)
+        boardInstance.board[0][1] = factory.createKoma(Koma.Type.KEIMA, Player.Type.GOTE)
+        boardInstance.board[0][7] = factory.createKoma(Koma.Type.KEIMA, Player.Type.GOTE)
 
-        boardInstance.board[8][2] = Koma(sente, Gin(boardInstance))
-        boardInstance.board[8][6] = Koma(sente, Gin(boardInstance))
-        boardInstance.board[0][2] = Koma(gote, Gin(boardInstance))
-        boardInstance.board[0][6] = Koma(gote, Gin(boardInstance))
+        boardInstance.board[8][2] = factory.createKoma(Koma.Type.GIN, Player.Type.SENTE)
+        boardInstance.board[8][6] = factory.createKoma(Koma.Type.GIN, Player.Type.SENTE)
+        boardInstance.board[0][2] = factory.createKoma(Koma.Type.GIN, Player.Type.GOTE)
+        boardInstance.board[0][6] = factory.createKoma(Koma.Type.GIN, Player.Type.GOTE)
 
-        boardInstance.board[8][3] = Koma(sente, Kin(boardInstance))
-        boardInstance.board[8][5] = Koma(sente, Kin(boardInstance))
-        boardInstance.board[0][3] = Koma(gote, Kin(boardInstance))
-        boardInstance.board[0][5] = Koma(gote, Kin(boardInstance))
+        boardInstance.board[8][3] = factory.createKoma(Koma.Type.KIN, Player.Type.SENTE)
+        boardInstance.board[8][5] = factory.createKoma(Koma.Type.KIN, Player.Type.SENTE)
+        boardInstance.board[0][3] = factory.createKoma(Koma.Type.KIN, Player.Type.GOTE)
+        boardInstance.board[0][5] = factory.createKoma(Koma.Type.KIN, Player.Type.GOTE)
 
-        boardInstance.board[7][7] = Koma(sente, Hisha(boardInstance))
-        boardInstance.board[1][1] = Koma(gote, Hisha(boardInstance))
+        boardInstance.board[7][7] = factory.createKoma(Koma.Type.HISHA, Player.Type.SENTE)
+        boardInstance.board[1][1] = factory.createKoma(Koma.Type.HISHA, Player.Type.GOTE)
 
-        boardInstance.board[7][1] = Koma(sente, Kaku(boardInstance))
-        boardInstance.board[1][7] = Koma(gote, Kaku(boardInstance))
+        boardInstance.board[7][1] = factory.createKoma(Koma.Type.KAKU, Player.Type.SENTE)
+        boardInstance.board[1][7] = factory.createKoma(Koma.Type.KAKU, Player.Type.GOTE)
 
-        boardInstance.board[8][4] = Koma(sente, Gyoku(boardInstance))
-        boardInstance.board[0][4] = Koma(gote, Gyoku(boardInstance))
+        boardInstance.board[8][4] = factory.createKoma(Koma.Type.GYOKU, Player.Type.SENTE)
+        boardInstance.board[0][4] = factory.createKoma(Koma.Type.GYOKU, Player.Type.GOTE)
 
         //初期の盤面保存
         boardInstance.createClone()
     }
     
-    fun csv(url: URL){
-        val csv:List<Array<String>> = Csv.load(File("C:\\Users\\karin757\\Desktop\\shogi.csv"), CsvConfig(), StringArrayListHandler())
+    fun json(url: String){
+        val factory: KomaFactory = KomaFactory(sente, gote, boardInstance)
 
+        val jsonAdapter = Moshi.Builder().build().adapter(BoardJson::class.java)
+        val jsonData = File(url).readLines().fold("") { s1, s2 -> "$s1$s2" }
+        val boardJson:BoardJson = jsonAdapter.fromJson(jsonData)
+
+        for (komaJson in boardJson.boardJsonList) {
+            val komaType = Koma.Type.valueOf(komaJson.name)
+            val playerType = Player.Type.valueOf(komaJson.player)
+            val x = parseX(komaJson.index)
+            val y = parseY(komaJson.index)
+            boardInstance.board[y][x] = factory.createKoma(komaType, playerType)
+        }
+
+        for (komaJson in boardJson.senteJsonList) {
+            val komaType = Koma.Type.valueOf(komaJson.name)
+            for(i in 1..komaJson.amount){
+                sente.addKoma(factory.createKoma(komaType, Player.Type.SENTE))
+            }
+        }
+
+        for (komaJson in boardJson.goteJsonList) {
+            val komaType = Koma.Type.valueOf(komaJson.name)
+            for(i in 1..komaJson.amount){
+                gote.addKoma(factory.createKoma(komaType, Player.Type.GOTE))
+            }
+        }
     }
 
     fun ki2(url: URL){
-        //ファイルを読み込んでBoardを変えていく
+        //ki2ファイルを読み込んでBoardを変えていく
     }
 
     fun kif(url: URL){
-        //ファイルを読み込んでBoardを変えていく
+        //kifファイルを読み込んでBoardを変えていく
+    }
+
+    private fun parseX(x: Int): Int{
+        return 9 - (x/10)
+    }
+    private fun parseY(y: Int): Int{
+        return (y%10) - 1
     }
 }

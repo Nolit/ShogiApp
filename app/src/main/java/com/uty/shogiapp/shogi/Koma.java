@@ -6,13 +6,11 @@ public class Koma implements Cloneable,Serializable{
 	private Player owner;
 	private KomaState state;
 
-	//コンストラクタ
 	public Koma(Player owner,KomaState state){
 		this.owner = owner;
 		this.state = state;
 	}
 
-	//
 	public void setOwner(Player player){
 		this.owner = player;
 	}
@@ -25,7 +23,6 @@ public class Koma implements Cloneable,Serializable{
 		return state.getNameState();
 	}
 
-	//
 	public void change(){
 		this.state = state.changeState(this,this.owner);
 	}
@@ -38,12 +35,10 @@ public class Koma implements Cloneable,Serializable{
 		return new Koma(this.owner,state.copyState());
 	}
 
-	//
 	public String getImageId(){
 		return state.getImageId();
 	}
 
-	//
 	public int[][] getAfterIndex(){
 		return state.getAfterIndexState(owner);		//確認	7/3 owner入れる意味あるかどうか
 	}
@@ -62,5 +57,9 @@ public class Koma implements Cloneable,Serializable{
 
 	public Board getBoard(){
 		return state.getBoard();
+	}
+
+	public enum Type{
+		FU,KYOSHA,KEIMA,GIN,KIN,KAKU,HISHA,GYOKU
 	}
 }
