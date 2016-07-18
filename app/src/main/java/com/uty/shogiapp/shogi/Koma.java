@@ -60,6 +60,19 @@ public class Koma implements Cloneable,Serializable{
 	}
 
 	public enum Type{
-		FU,KYOSHA,KEIMA,GIN,KIN,KAKU,HISHA,GYOKU
+		FU,
+		KYOSHA,
+		KEIMA,
+		GIN,
+		KIN,
+		KAKU,
+		HISHA,
+		GYOKU,
+		TOKIN,
+		NARIKYO,
+		NARIKEI,
+		NARIGIN,
+		UMA,
+		RYU
 	}
 }

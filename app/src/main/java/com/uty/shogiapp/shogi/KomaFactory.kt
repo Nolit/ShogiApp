@@ -17,6 +17,12 @@ class KomaFactory(val sente:Player, val gote:Player, val boardInstance:Board){
             Koma.Type.KAKU -> Koma(player, Kaku(boardInstance))
             Koma.Type.HISHA -> Koma(player, Hisha(boardInstance))
             Koma.Type.GYOKU -> Koma(player, Gyoku(boardInstance))
+            Koma.Type.TOKIN -> Koma(player, Tokin(boardInstance))
+            Koma.Type.NARIKYO -> Koma(player, Narikyo(boardInstance))
+            Koma.Type.NARIKEI -> Koma(player, Narikei(boardInstance))
+            Koma.Type.NARIGIN -> Koma(player, Narigin(boardInstance))
+            Koma.Type.UMA -> Koma(player, Uma(boardInstance))
+            Koma.Type.RYU -> Koma(player, Ryu(boardInstance))
         }
     }
 }

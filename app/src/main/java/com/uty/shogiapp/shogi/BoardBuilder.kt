@@ -1,9 +1,6 @@
 package com.uty.shogiapp.shogi
 
 import java.net.URL
-import com.orangesignal.csv.Csv
-import com.orangesignal.csv.CsvConfig
-import com.orangesignal.csv.handlers.StringArrayListHandler
 import com.squareup.moshi.Moshi
 import java.io.File
 
