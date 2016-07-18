@@ -36,6 +36,7 @@ class MyPage : Activity() {
     private val battleHistoryButton: Button by bindView(R.id.battleHistoryButton);//対局履歴ページ
     private val logoutButton:        Button by bindView(R.id.logoutButton);		  //ログアウトしてTopに戻る
     private val guestFlagSwitch:     Switch by bindView(R.id.guestFlagSwitch);	   //ゲスト対局の許可・拒否設定
+    private val shogiProblemButton:    Button by bindView(R.id.shogiProblem)        //詰み将棋ページ
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +50,7 @@ class MyPage : Activity() {
                         R.id.titleButton -> Intent(this, TitleBuy::class.java)
                         R.id.rankingButton -> Intent(this, Ranking::class.java)
                         R.id.battleHistoryButton -> Intent(this, BattleHistory::class.java)
+                        R.id.shogiProblem->Intent(this, Problem::class.java)
                         else -> Intent(this, MainActivity::class.java)
                     }
                     startActivity(nextIntent)
@@ -58,6 +60,7 @@ class MyPage : Activity() {
         titleButton.setOnClickListener(transitionListener)
         rankingButton.setOnClickListener(transitionListener)
         battleHistoryButton.setOnClickListener(transitionListener)
+        shogiProblemButton.setOnClickListener(transitionListener)
         logoutButton.setOnClickListener({
             v -> getSharedPreferences("tt4", Context.MODE_PRIVATE).edit().remove("id").commit()
                 println("ログアウトしました。")
