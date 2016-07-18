@@ -45,7 +45,7 @@ public class BoardKeeper  implements Serializable{
                 //後手をClone
 		boardClone.getGote().setMochiKoma(getKomasClone(board.getGote().getMochiKoma()));
 		boardClone.getGote().setMochiKomaNum(numsClone(board.getGote().getMochiKomaNum()));
-	return boardClone;
+		return boardClone;
 	}
 
 	private Koma[] getKomasClone(Koma[] komas){

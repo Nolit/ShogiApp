@@ -18,80 +18,16 @@ public class Board implements Serializable{
         private int beforeIndex;
         private int afterIndex;
 
-        public Board(){
-        }
+	public Board(){
+	}
+
 	public Board(Player sente,Player gote){
-                //先手と後手をセットして初期化
-                this.sente = sente;
-                this.gote = gote;
-                sente.setBoard(this);
-                gote.setBoard(this);
-                turn = sente;
-
-                //board[][]の初期化「歩」(先手)
-		for(int i=0; i<9; i++){
-			board[6][i] = new Koma(sente,new Fu(this));
-		}
-
-		//board[][]の初期化「歩」(後手)
-		for(int i=0; i<9; i++){
-			board[2][i] = new Koma(gote,new Fu(this));
-		}
-
-		//board[][]の初期化「香車」(先手)
-		board[8][0] = new Koma(sente,new Kyosha(this));
-		board[8][8] = new Koma(sente,new Kyosha(this));
-
-		//board[][]の初期化「香車」(後手)
-		board[0][0] = new Koma(gote,new Kyosha(this));
-		board[0][8] = new Koma(gote,new Kyosha(this));
-
-		//board[][]の初期化「桂馬」(先手)
-		board[8][1] = new Koma(sente,new Keima(this));
-		board[8][7] = new Koma(sente,new Keima(this));
-
-		//board[][]の初期化「桂馬」(後手)
-		board[0][1] = new Koma(gote,new Keima(this));
-		board[0][7] = new Koma(gote,new Keima(this));
-
-		//board[][]の初期化「銀」(先手)
-		board[8][2] = new Koma(sente,new Gin(this));
-		board[8][6] = new Koma(sente,new Gin(this));
-
-		//board[][]の初期化「銀」(後手)
-		board[0][2] = new Koma(gote,new Gin(this));
-		board[0][6] = new Koma(gote,new Gin(this));
-
-		//board[][]の初期化「金」(先手)
-		board[8][3] = new Koma(sente,new Kin(this));
-		board[8][5] = new Koma(sente,new Kin(this));
-
-		//board[][]の初期化「金」(後手)
-		board[0][3] = new Koma(gote,new Kin(this));
-		board[0][5] = new Koma(gote,new Kin(this));
-
-		//board[][]の初期化「飛車」(先手)
-		board[7][7] = new Koma(sente,new Hisha(this));
-
-		//board[][]の初期化「飛車」(後手)
-		board[1][1] = new Koma(gote,new Hisha(this));
-
-		//board[][]の初期化「角」(先手)
-		board[7][1] = new Koma(sente,new Kaku(this));
-
-		//board[][]の初期化「角」(後手)
-		board[1][7] = new Koma(gote,new Kaku(this));
-
-		//board[][]の初期化「玉」(先手)
-		board[8][4] = new Koma(sente,new Gyoku(this));
-
-		//board[][]の初期化「玉」(後手)
-		board[0][4] = new Koma(gote,new Gyoku(this));
-
-                //初期の盤面保存
-                createClone();
-
-
+        //先手と後手をセットして初期化
+        this.sente = sente;
+        this.gote = gote;
+        sente.setBoard(this);
+        gote.setBoard(this);
+        turn = sente;
 
 //		//test  -->王手チェックのテスト
 //		board[5][4] = new Koma(sente,new Gyoku());
