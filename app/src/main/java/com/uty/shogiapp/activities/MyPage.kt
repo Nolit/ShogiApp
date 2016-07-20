@@ -50,7 +50,7 @@ class MyPage : Activity() {
                         R.id.titleButton -> Intent(this, TitleBuy::class.java)
                         R.id.rankingButton -> Intent(this, Ranking::class.java)
                         R.id.battleHistoryButton -> Intent(this, BattleHistory::class.java)
-                        R.id.shogiProblem->Intent(this, Problem::class.java)
+                        R.id.shogiProblem->Intent(this, ProblemList::class.java)
                         else -> Intent(this, MainActivity::class.java)
                     }
                     startActivity(nextIntent)

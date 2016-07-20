@@ -24,7 +24,7 @@ public class BoardUpdater extends AsyncTask<BattleClient,Void,Void>{
 	private Player yourPlayer;
 	@Override
 	protected Void doInBackground(BattleClient... params) {
-		bc = (BattleClient)params[0];
+		bc = params[0];
 		System.out.println("BoardUpdater_doInBackground...");
 		//自分と相手のPlayerインスタンスを保存
 		if(bc.activity.getOrder().equals("先手")){

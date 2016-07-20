@@ -10,8 +10,7 @@
         android:layout_width="140dp"
         android:layout_height="80dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/frameLayoutAll">
+        android:layout_alignParentEnd="true">
 
         <GridLayout
             android:id="@+id/yourMochikomaGrid"
@@ -179,8 +178,7 @@
         android:layout_height="80dp"
         android:layout_gravity="left"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/frameLayoutAll">
+        android:layout_alignParentStart="true">
 
         <GridLayout
             android:id="@+id/myMochikomaGrid"

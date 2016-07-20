@@ -34,7 +34,6 @@ dependencies {
     compile 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
     compile 'com.neovisionaries:nv-websocket-client:1.27'
     compile 'com.android.support:support-v4:23.4.0'
-    compile 'com.jakewharton:butterknife:8.0.1'
     compile 'com.squareup.moshi:moshi:1.0.0'
 }
 buildscript {

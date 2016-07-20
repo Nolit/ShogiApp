@@ -87,7 +87,7 @@ class MyPageServlet : AsyncTask<MyPage, Void, List<String>> {
 
         //アバター
         try {
-            val clazz = Class.forName("com.uty.shogi.R\$drawable")
+            val clazz = Class.forName("com.uty.shogiapp.R\$drawable")
             val f = clazz.getField(it.next())
             myPage.avatar.setImageBitmap(BitmapFactory.decodeResource(myPage.resources, f.getInt(null)))
         } catch (e: Exception) {

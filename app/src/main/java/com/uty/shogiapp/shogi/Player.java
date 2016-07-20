@@ -28,48 +28,6 @@ private static final String[] ORDERS = {"飛車","角","金","銀","桂馬","香
 		//ここから敵の駒を取った時の処理
 		if(boardInstance.board[afterRow][afterCol] != null){
 			this.addKoma(boardInstance.board[afterRow][afterCol]);
-//			boardInstance.board[afterRow][afterCol].back();
-//			boardInstance.board[afterRow][afterCol].setOwner(this);
-//
-//			//ここから持ち駒を走査
-//			break_point:
-//			for(int i=0;i<this.mochiKoma.length;i++){
-//
-//				//ここから取った駒より優先順位の高い駒が持ち駒になかった時の処理
-//				if(this.mochiKoma[i] == null){
-//					this.mochiKoma[i] = boardInstance.board[afterRow][afterCol];
-//					this.mochiKomaNum[i] = 1;
-//					break break_point;
-//				}else{
-//				//ここまで取った駒より優先順位の高い駒が持ち駒になかった時の処理
-//
-//					//ここから取った駒の優先順位に応じて持ち駒に加える
-//					for(String komaOrder : Player.ORDERS){
-//						if(komaOrder == this.mochiKoma[i].getName()){
-//							//取った駒を既に持っていた場合の処理
-//							if(this.mochiKoma[i].getName() == boardInstance.board[afterRow][afterCol].getName()){
-//								mochiKomaNum[i]++;
-//								break break_point;
-//							//取った駒より優先順位の高い駒だったので次の持ち駒を探す
-//							}else{
-//								break;
-//							}
-//						}
-//						//ここから取った駒は持ち駒に無く、取った駒より優先順位の低い駒を持っていたため優先順位に沿った場所へ入れる処理
-//						if(komaOrder == boardInstance.board[afterRow][afterCol].getName()){
-//							for(int j=this.mochiKoma.length-2;j>i+1;j--){
-//								System.out.println(j-1);
-//								this.mochiKoma[j-1] = this.mochiKoma[j-2];
-//								this.mochiKomaNum[j-1] = this.mochiKomaNum[j-2];
-//							}
-//							this.mochiKoma[i] = boardInstance.board[afterRow][afterCol];
-//							this.mochiKomaNum[i] = 1;
-//							break break_point;
-//						}
-//						//ここまで取った駒は持ち駒に無く、取った駒より優先順位の低い駒を持っていたため優先順位に沿った場所へ入れる処理
-//					}
-//				}
-//			}
 		}
 		boardInstance.board[afterRow][afterCol] = boardInstance.board[beforeRow][beforeCol];
 		boardInstance.board[beforeRow][beforeCol] = null;

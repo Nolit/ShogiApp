@@ -56,11 +56,10 @@ class BoardBuilder{
         boardInstance.createClone()
     }
     
-    fun json(url: String){
+    fun json(jsonData: String){
         val factory: KomaFactory = KomaFactory(sente, gote, boardInstance)
 
         val jsonAdapter = Moshi.Builder().build().adapter(BoardJson::class.java)
-        val jsonData = File(url).readLines().fold("") { s1, s2 -> "$s1$s2" }
         val boardJson:BoardJson = jsonAdapter.fromJson(jsonData)
 
         for (komaJson in boardJson.boardJsonList) {
