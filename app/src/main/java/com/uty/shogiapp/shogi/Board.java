@@ -813,78 +813,78 @@ public class Board implements Serializable{
 			}
 		}
 
-		//プロセス4:王手チェック
-		if(koma.getName() == "玉"){				//選択した駒が玉の時分岐
-			//玉の移動可能範囲内に、敵駒の利きがあるマスがあればそのマスを移動できないようにする(玉の移動可能範囲をさらに絞る)
-
-			//盤上の保存
-			boardKeeper.addKifuClone(boardKeeper.getKifu().size()+1,this);
-
-
-			for(int i=0; i<8; i++){		//玉のmove.length --> 8回繰り返す
-				if(moveEnable[i] == true){		//移動可能先ならば分岐
-					try
-					{
-						//駒移動
-						board[intBefore1 + move[i][0]][intBefore2 + move[i][1]] = koma;
-						board[intBefore1][intBefore2] = null;
-
-						//王手チェック
-						if(outeCheck(intBefore1 + move[i][0],intBefore2 + move[i][1],koma)[0] != 0){			//移動先の座標が王手ゾーンならば分岐
-							moveEnable[i] = false;
-						}
-
-						//盤上を元の状態に戻す
-						board = boardKeeper.getClone(boardKeeper.getKifu().size()).board;
-
-					}catch(ArrayIndexOutOfBoundsException e)
-					{
-						//何もしない
-					}
-				}
-			}
-
-			//boardKeeperを元の状態に戻す
-			boardKeeper.getKifu().remove(boardKeeper.getKifu().size());
-
-
-		}else{				//選択した駒が玉の以外の時分岐
-
-			//王手チェック2 駒移動によって自分の玉が王手にならないかチェック
-
-			//盤上の保存
-			boardKeeper.addKifuClone(boardKeeper.getKifu().size()+1,this);
-
-			//玉の座標の取得
-			int gyokuIndex[] = getGyokuIndex(koma.getOwner());
-
-			for(int i=0; i<move.length; i++){
-				if(moveEnable[i] == true){		//移動可能先ならば分岐
-					try
-					{
-						//駒移動
-						board[intBefore1 + move[i][0]][intBefore2 + move[i][1]] = koma;
-						board[intBefore1][intBefore2] = null;
-
-						//王手チェック
-						if(outeCheck(gyokuIndex[0],gyokuIndex[1],koma)[0] != 0){
-							moveEnable[i] = false;
-						}
-
-						//盤上を元の状態に戻す
-						board = boardKeeper.getClone(boardKeeper.getKifu().size()).board;
-
-					}catch(ArrayIndexOutOfBoundsException e)
-					{
-						//何もしない
-					}
-				}
-			}
-
-			//boardKeeperを元の状態に戻す
-			boardKeeper.getKifu().remove(boardKeeper.getKifu().size());
-
-		}
+//		//プロセス4:王手チェック
+//		if(koma.getName() == "玉"){				//選択した駒が玉の時分岐
+//			//玉の移動可能範囲内に、敵駒の利きがあるマスがあればそのマスを移動できないようにする(玉の移動可能範囲をさらに絞る)
+//
+//			//盤上の保存
+//			boardKeeper.addKifuClone(boardKeeper.getKifu().size()+1,this);
+//
+//
+//			for(int i=0; i<8; i++){		//玉のmove.length --> 8回繰り返す
+//				if(moveEnable[i] == true){		//移動可能先ならば分岐
+//					try
+//					{
+//						//駒移動
+//						board[intBefore1 + move[i][0]][intBefore2 + move[i][1]] = koma;
+//						board[intBefore1][intBefore2] = null;
+//
+//						//王手チェック
+//						if(outeCheck(intBefore1 + move[i][0],intBefore2 + move[i][1],koma)[0] != 0){			//移動先の座標が王手ゾーンならば分岐
+//							moveEnable[i] = false;
+//						}
+//
+//						//盤上を元の状態に戻す
+//						board = boardKeeper.getClone(boardKeeper.getKifu().size()).board;
+//
+//					}catch(ArrayIndexOutOfBoundsException e)
+//					{
+//						//何もしない
+//					}
+//				}
+//			}
+//
+//			//boardKeeperを元の状態に戻す
+//			boardKeeper.getKifu().remove(boardKeeper.getKifu().size());
+//
+//
+//		}else{				//選択した駒が玉の以外の時分岐
+//
+//			//王手チェック2 駒移動によって自分の玉が王手にならないかチェック
+//
+//			//盤上の保存
+//			boardKeeper.addKifuClone(boardKeeper.getKifu().size()+1,this);
+//
+//			//玉の座標の取得
+//			int gyokuIndex[] = getGyokuIndex(koma.getOwner());
+//
+//			for(int i=0; i<move.length; i++){
+//				if(moveEnable[i] == true){		//移動可能先ならば分岐
+//					try
+//					{
+//						//駒移動
+//						board[intBefore1 + move[i][0]][intBefore2 + move[i][1]] = koma;
+//						board[intBefore1][intBefore2] = null;
+//
+//						//王手チェック
+//						if(outeCheck(gyokuIndex[0],gyokuIndex[1],koma)[0] != 0){
+//							moveEnable[i] = false;
+//						}
+//
+//						//盤上を元の状態に戻す
+//						board = boardKeeper.getClone(boardKeeper.getKifu().size()).board;
+//
+//					}catch(ArrayIndexOutOfBoundsException e)
+//					{
+//						//何もしない
+//					}
+//				}
+//			}
+//
+//			//boardKeeperを元の状態に戻す
+//			boardKeeper.getKifu().remove(boardKeeper.getKifu().size());
+//
+//		}
 
 
 
@@ -1484,30 +1484,30 @@ public class Board implements Serializable{
 			}
 		}
 
-		//王手チェック
-		//玉の座標の取得
-		int gyokuIndex[] = getGyokuIndex(koma.getOwner());
-
-		//盤上の保存
-		boardKeeper.addKifuClone(boardKeeper.getKifu().size()+1,this);
-		for(int i=0; i<9; i++){
-			for(int j=0; j<9; j++){
-				if(putEnable[i][j] == true){		//移動可能先ならば分岐
-						//駒打ち
-						board[i][j] = koma;
-
-						//王手チェック
-						if(outeCheck(gyokuIndex[0],gyokuIndex[1],koma)[0] != 0){			//移動先の座標が王手ゾーンならば分岐
-							putEnable[i][j] = false;
-						}
-
-						//盤上を元の状態に戻す
-						board = boardKeeper.getClone(boardKeeper.getKifu().size()).board;
-				}
-			}
-		}
-		//boardKeeperを元の状態に戻す
-		boardKeeper.getKifu().remove(boardKeeper.getKifu().size());
+//		//王手チェック
+//		//玉の座標の取得
+//		int gyokuIndex[] = getGyokuIndex(koma.getOwner());
+//
+//		//盤上の保存
+//		boardKeeper.addKifuClone(boardKeeper.getKifu().size()+1,this);
+//		for(int i=0; i<9; i++){
+//			for(int j=0; j<9; j++){
+//				if(putEnable[i][j] == true){		//移動可能先ならば分岐
+//						//駒打ち
+//						board[i][j] = koma;
+//
+//						//王手チェック
+//						if(outeCheck(gyokuIndex[0],gyokuIndex[1],koma)[0] != 0){			//移動先の座標が王手ゾーンならば分岐
+//							putEnable[i][j] = false;
+//						}
+//
+//						//盤上を元の状態に戻す
+//						board = boardKeeper.getClone(boardKeeper.getKifu().size()).board;
+//				}
+//			}
+//		}
+//		//boardKeeperを元の状態に戻す
+//		boardKeeper.getKifu().remove(boardKeeper.getKifu().size());
 
 		//Listを作成していく
 		int row = 0;				//行

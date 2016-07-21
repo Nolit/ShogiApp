@@ -35,8 +35,11 @@
         <activity
             android:name=".activities.Matching"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.Problem" />
         <activity android:name=".activities.ProblemList"></activity>
+        <activity
+            android:name=".activities.Problem"
+            android:label="@string/title_activity_my_page"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -25,6 +25,7 @@ public class Koma implements Cloneable,Serializable{
 
 	public void change(){
 		this.state = state.changeState(this,this.owner);
+		state.boardInstance.setNariFlag(false);
 	}
 
 	public void back(){

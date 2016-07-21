@@ -14,14 +14,12 @@ public class Fu extends KomaState implements Serializable{
 		if(owner.getName().equals("先手")){
 			for(int i=0;i<9;i++){
 				if(boardInstance.board[0][i] == koma){
-                                    System.out.println("先手で成り");
 					return new Tokin(boardInstance);
 				}
 			}
 		}else{
 			for(int i=0;i<9;i++){
 				if(boardInstance.board[8][i] == koma){
-                                    System.out.println("後手で成り");
 					return new Tokin(boardInstance);
 				}
 			}
