@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Koma implements Cloneable,Serializable{
 	private Player owner;
-	private KomaState state;
+	public KomaState state;
 
 	public Koma(Player owner,KomaState state){
 		this.owner = owner;

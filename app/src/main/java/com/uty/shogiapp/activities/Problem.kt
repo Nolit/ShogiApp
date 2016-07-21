@@ -8,6 +8,8 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
@@ -17,8 +19,7 @@ import butterknife.bindView
 import com.uty.shogiapp.R
 import com.uty.shogiapp.functions.dispBoard
 import com.uty.shogiapp.settings.ServerConfig
-import com.uty.shogiapp.shogi.Board
-import com.uty.shogiapp.shogi.BoardBuilder
+import com.uty.shogiapp.shogi.*
 import com.uty.shogiapp.websocketClients.BoardUpdater
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -29,9 +30,13 @@ import kotlin.concurrent.thread
 
 class Problem : AppCompatActivity() {
     lateinit var board: Board
+    lateinit var caption: String
+
     //ここは無くなる予定
     var flag: Boolean? = false
     var beforeIndex: Int? = null
+    lateinit var rightActionList: Array<RightAction>
+    var nextAction: Action? = null
 
     val boardGrid: GridLayout by bindView(R.id.boardGrid)
     val myMochikomaGrid: GridLayout by bindView(R.id.myMochikomaGrid)
@@ -44,7 +49,7 @@ class Problem : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.problem)
 
-        val caption = intent.getStringExtra("caption")
+        caption = intent.getStringExtra("caption")
         fetchProblemByCaption(caption)
 
         resignButton.setOnClickListener {
@@ -78,7 +83,9 @@ class Problem : AppCompatActivity() {
                 val builder = BoardBuilder()
                 builder.json(jsonString)
                 board = builder.boardInstance
-                dispBoard(board)
+                rightActionList = builder.problemJson.rightAction
+
+//                dispBoard(board)
                 flag = true
             }
         }
@@ -86,6 +93,7 @@ class Problem : AppCompatActivity() {
 
     private fun gameUpdate(){
         println("gameUpdate")
+        allButtonNotEnabled()
         val clazz = Class.forName("com.uty.shogiapp.R\$drawable")
         //ここから盤面GridLayoutの更新
         for (i in 0..8) {
@@ -179,7 +187,6 @@ class Problem : AppCompatActivity() {
         val afterIndex = zahyo
 
         return View.OnClickListener {
-            var nariDialogFlag = false
             if (afterIndex == beforeIndex) {
                 println("駒を戻します")
                 updateEventHandler()
@@ -192,41 +199,55 @@ class Problem : AppCompatActivity() {
                 val afterCol = afterIndex % 10 - 1
                 //ここから成れるかの確認
                 val koma = board.board[afterRow][afterCol]
+                var nariFlag = false
+                var dialogFlag = false
                 if (koma.getName() == "歩" || koma.getName() == "香車" || koma.getName() == "桂馬" ||
                     koma.getName() == "銀" || koma.getName() == "飛車" || koma.getName() == "角") {
                     if (afterRow < 3 || afterRow < 3) {
                         if (!((koma.getName() == "歩" || koma.getName() == "香車") && afterRow == 0)) {
                             if (!(koma.getName() == "桂馬" && afterRow < 2)) {
-                                //ダイアログで確認
-                                nariDialogFlag = true
+                                dialogFlag = true
                                 AlertDialog.Builder(this).setTitle("成りますか？").setPositiveButton("成る") { dialog, which ->
                                     board.setNariFlag(true);
                                     board.board[afterRow][afterCol].change()
                                     gameUpdate()
+
+                                    if (checkAction(Action(beforeIndex!!, afterIndex, nariFlag, false, null))) {
+                                        nextStep(nextAction!!)
+                                    } else {
+                                        restartActivity()
+                                    }
+//                                    println("checkAction:"+checkAction(Action(beforeIndex!!, afterIndex, true, false, null)))
                                 }.setNegativeButton("成らない") { dialog, which ->
-//                                    board.setNariFlag(false);
-//                                    gameUpdate()
+
+                                    if (checkAction(Action(beforeIndex!!, afterIndex, nariFlag, false, null))) {
+                                        nextStep(nextAction!!)
+                                    } else {
+                                        restartActivity()
+                                    }
                                 }.show()
+
                             } else {
-                                board.setNariFlag(true);
-                                board.board[afterRow][afterCol].change()
-                                gameUpdate()
+                                nariFlag = true
                             }
                         } else {
-                            board.setNariFlag(true);
+                            nariFlag = true
                             board.board[afterRow][afterCol].change()
-                            gameUpdate()
                         }
+                    }
+                }
+                board.setNariFlag(nariFlag);
+                gameUpdate()
+                if(!dialogFlag) {
+                    if (checkAction(Action(beforeIndex!!, afterIndex, nariFlag, false, null))) {
+                        nextStep(nextAction!!)
                     } else {
-//                        board.setNariFlag(false);
-//                        gameUpdate()
+                        restartActivity()
                     }
-                    }
+                }
                 //ここまで成れるかの確認
-                allButtonNotEnabled()
             }
             changeDefaultColorBoardImageButton()
-            gameUpdate()
         }
     }
 
@@ -259,15 +280,18 @@ class Problem : AppCompatActivity() {
         val afterIndex = zahyo
         return View.OnClickListener {
             if (afterIndex == beforeIndex) {
-                println("駒を戻します")
                 updateEventHandler()
             } else {
-                println("${beforeIndex}から${afterIndex}へput")
-                board.sente.put(beforeIndex!!, afterIndex)
-                //					BoardUpdater.this.bc.activity.setOrder(BoardUpdater.this.yourPlayer.getName());
+                if(checkAction(Action(null, afterIndex, false, true, getKomaName(board.sente.mochiKoma[beforeIndex!!])))){
+                    board.sente.put(beforeIndex!!, afterIndex)
+                    nextStep(nextAction)
+                }else{
+                    restartActivity()
+                }
                 allButtonNotEnabled()
             }
             changeDefaultColorBoardImageButton()
+
             beforeIndex = 0
             gameUpdate()
         }
@@ -285,7 +309,6 @@ class Problem : AppCompatActivity() {
 
                 ib.isEnabled = false
                 if (board.board[j][i] != null && board.board[j][i].getOwner().getName() == "先手") {
-                    println("enabled")
                     ib.isEnabled = true
                     ib.setOnClickListener(movableOnClickListenerCreate((j + 1) * 10 + (i + 1)))
                 }
@@ -299,6 +322,48 @@ class Problem : AppCompatActivity() {
             (myMochikomaGrid.getChildAt(i) as ImageButton).isEnabled = true
             (myMochikomaGrid.getChildAt(i) as ImageButton).setOnClickListener(puttableOnClickListenerCreate(i))
         }
+    }
+
+    private fun checkAction(action: Action): Boolean{
+        for(rightAction in this.rightActionList){
+            val done = rightAction.done
+            if(done.put == action.put && done.name == action.name &&
+                done.before == convertIndex(action.before) && done.after == convertIndex(action.after) && done.change == action.change){
+                rightActionList = rightAction.rightAction
+                nextAction = rightAction.next
+                return true
+            }
+        }
+        return false
+    }
+
+    private fun nextStep(action: Action?){
+        if(action == null){
+            allButtonNotEnabled()
+            AlertDialog.Builder(this).setTitle("おめでとうございます！").setPositiveButton("OK") { dialog, which ->
+                val intent = Intent(this, ProblemList::class.java)
+                startActivity(intent)
+            }.show()
+            return Unit
+        }
+
+        val before = convertIndexReverse(action.before)
+        val after = convertIndexReverse(action.after)
+        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+            if (action.put) {
+                board.gote.put(0, after!!)
+            } else {
+                board.gote.move(before!!, after!!)
+                if (action.change) {
+                    val afterRow = after / 10 - 1
+                    val afterCol = after % 10 - 1
+
+                    board.isNariFlag = true
+                    board.board[afterRow][afterCol].change()
+                }
+                gameUpdate()
+            }
+        }, 3000)
     }
 
     private fun changeWhiteColorImageButton(ib: ImageButton) {
@@ -318,6 +383,12 @@ class Problem : AppCompatActivity() {
         }
     }
 
+    private fun restartActivity(){
+        println("back!")
+        val intent = Intent(this, Problem::class.java).putExtra("caption", caption)
+        startActivity(intent)
+    }
+
     //全ボタンの無効化
     private fun allButtonNotEnabled() {
         for (i in 0..8) {
@@ -328,5 +399,23 @@ class Problem : AppCompatActivity() {
         for (i in 0..7) {
             (myMochikomaGrid.getChildAt(i) as ImageButton).isEnabled = false
         }
+    }
+
+    private fun convertIndex(index: Int?): Int?{
+        if(index == null){
+            return null
+        }
+        val x = index % 10
+        val y = index / 10
+        return (10 - x) * 10 + y
+    }
+
+    private fun convertIndexReverse(index: Int?): Int?{
+        if(index == null){
+            return null
+        }
+        val x = index / 10
+        val y = index % 10
+        return y * 10 + (10 - x)
     }
 }

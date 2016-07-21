@@ -33,6 +33,7 @@ private static final String[] ORDERS = {"飛車","角","金","銀","桂馬","香
 		boardInstance.board[beforeRow][beforeCol] = null;
 		//ここまで敵の駒を取った時の処理
                 System.out.println("afterRow:"+afterRow);
+		System.out.println("afterCol:"+afterCol);
 		//ここから成れるかの確認
 		if(boardInstance.board[afterRow][afterCol].getOwner().getName().equals("先手")){
 

@@ -8,6 +8,7 @@ class BoardBuilder{
     private val sente:Player = (Player("先手"))
     private val gote:Player = (Player("後手"))
     val boardInstance:Board = Board(sente, gote)
+    lateinit var problemJson:ProblemJson
 
     //通常対局時のデフォルトの配置
     fun default(){
@@ -59,10 +60,10 @@ class BoardBuilder{
     fun json(jsonData: String){
         val factory: KomaFactory = KomaFactory(sente, gote, boardInstance)
 
-        val jsonAdapter = Moshi.Builder().build().adapter(BoardJson::class.java)
-        val boardJson:BoardJson = jsonAdapter.fromJson(jsonData)
+        val jsonAdapter = Moshi.Builder().build().adapter(ProblemJson::class.java)
+        problemJson = jsonAdapter.fromJson(jsonData)
 
-        for (komaJson in boardJson.boardJsonList) {
+        for (komaJson in problemJson.boardJsonList) {
             val komaType = Koma.Type.valueOf(komaJson.name)
             val playerType = Player.Type.valueOf(komaJson.player)
             val x = parseX(komaJson.index)
@@ -70,14 +71,14 @@ class BoardBuilder{
             boardInstance.board[y][x] = factory.createKoma(komaType, playerType)
         }
 
-        for (komaJson in boardJson.senteJsonList) {
+        for (komaJson in problemJson.senteJsonList) {
             val komaType = Koma.Type.valueOf(komaJson.name)
             for(i in 1..komaJson.amount){
                 sente.addKoma(factory.createKoma(komaType, Player.Type.SENTE))
             }
         }
 
-        for (komaJson in boardJson.goteJsonList) {
+        for (komaJson in problemJson.goteJsonList) {
             val komaType = Koma.Type.valueOf(komaJson.name)
             for(i in 1..komaJson.amount){
                 gote.addKoma(factory.createKoma(komaType, Player.Type.GOTE))
